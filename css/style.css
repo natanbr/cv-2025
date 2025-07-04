@@ -1,0 +1,106 @@
+/* Basic Reset & Setup */
+:root {
+  --primary-color: #4F00F9;
+  --secondary-color: #00cec9;
+  --bg-light-gray: #f7f7f9;
+  --text-dark: #333;
+  --text-light: #f4f4f4;
+  --border-color: #e0e0e0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light-gray); color: var(--text-dark); line-height: 1.6; }
+
+/* Sticky Scroll Section Layout */
+.section {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 2rem;
+}
+.section-container { width: 100%; max-width: 1100px; margin: 0 auto; }
+.section-title { text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); margin-bottom: 3rem; text-transform: uppercase; }
+
+/* --- 1. Hero Section & Navigation --- */
+.hero { background-color: var(--primary-color); color: var(--text-light); text-align: center; z-index: 1; }
+.hero-content { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.main-nav { position: absolute; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; z-index: 1000; background: transparent; }
+.nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--text-light); text-decoration: none; }
+.nav-links { display: flex; list-style: none; gap: 1rem; }
+.nav-links a { color: var(--text-light); text-decoration: none; padding: 0.5rem 1rem; font-weight: 600; transition: background-color 0.3s; border-radius: 5px; }
+.nav-links a:hover { background-color: rgba(255, 255, 255, 0.1); }
+.menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
+.profile-pic { width: 150px; height: 150px; border-radius: 50%; border: 5px solid white; object-fit: cover; margin-top: 60px; margin-bottom: 1.5rem; }
+.hero h1 { font-size: 3.5rem; }
+.hero h2 { font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; }
+.social-links a { color: var(--text-light); font-size: 1.5rem; margin: 0 0.75rem; transition: color 0.3s; }
+.social-links a:hover { color: var(--secondary-color); }
+.scroll-down-link { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); }
+.scroll-down { font-size: 1.5rem; color: white; }
+
+/* --- 2. About Me Section --- */
+.about-me { background-color: white; z-index: 2; }
+.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: flex-start; }
+.section-title-sub { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 1rem; }
+.contact-info ul { list-style: none; }
+.contact-info li { margin-bottom: 1rem; display: flex; align-items: center; }
+.contact-info i { color: var(--primary-color); margin-right: 1rem; font-size: 1.2rem; width: 20px; text-align: center; }
+
+/* --- 3. Experience Section --- */
+.experience { background-color: white; z-index: 4; }
+.experience-list { display: flex; flex-direction: column; gap: 2rem; }
+.experience-card { display: flex; align-items: flex-start; gap: 1.5rem; background-color: #fff; padding: 2rem; border: 1px solid var(--border-color); border-radius: 8px; }
+.experience-icon { flex-shrink: 0; width: 60px; height: 60px; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-size: 1.75rem; }
+.experience-details h3 { font-size: 1.25rem; }
+.tags .tag { display: inline-block; background-color: var(--bg-light-gray); color: #555; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; margin: 0.5rem 0.5rem 0 0; }
+
+/* --- 4. Publications Section --- */
+.publications { background-color: var(--bg-light-gray); z-index: 3; }
+.publication-list { display: grid; gap: 1.5rem; }
+.publication-item { background-color: white; padding: 1.5rem 2rem; border-radius: 8px; border: 1px solid var(--border-color); }
+.publication-item h3 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+.publication-item h3 a { text-decoration: none; color: var(--primary-color); }
+.publication-item h3 a:hover { text-decoration: underline; }
+.publication-meta { font-size: 0.9rem; color: #666; font-style: italic; margin-bottom: 1rem; }
+.publication-desc { font-size: 1rem; margin-bottom: 1rem; }
+.publication-links { display: flex; gap: 0.75rem; }
+.publication-link { text-decoration: none; font-weight: 600; font-size: 0.8rem; color: var(--secondary-color); border: 1px solid var(--secondary-color); padding: 0.25rem 0.75rem; border-radius: 20px; transition: all 0.3s; }
+.publication-link:hover { background-color: var(--secondary-color); color: white; }
+
+/* --- 5. Footer Section --- */
+.footer { background-color: var(--primary-color); color: var(--text-light); text-align: center; }
+.footer-content { max-width: 700px; }
+.footer h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+.footer-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+.btn { padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 600; }
+.btn-light { background-color: white; color: var(--primary-color); }
+.btn-secondary { background-color: var(--secondary-color); color: white; }
+
+/* --- THE ROBUST SCROLLING FIX --- */
+/* This makes the footer a normal, non-sticky block, which resolves the browser's
+   conflict when the section above it is taller than the screen. */
+.footer.section {
+  position: relative;
+  z-index: 5;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .section { padding: 4rem 1.5rem; }
+  .section-title { font-size: 2rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .experience-card { flex-direction: column; align-items: center; text-align: center; }
+
+  /* Mobile Navigation */
+  .menu-toggle { display: block; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--primary-color); flex-direction: column; padding: 1rem 0; }
+  .nav-links.active { display: flex; }
+  .nav-links li { text-align: center; width: 100%; }
+  .nav-links a { display: block; padding: 1rem; width: 100%; border-radius: 0; }
+}
